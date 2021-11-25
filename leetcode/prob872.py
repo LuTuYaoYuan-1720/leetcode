@@ -17,8 +17,14 @@ class Solution:
         l2 = []
         self.help(root1, l1)
         self.help(root2, l2)
-
-        return False
+        return l1 == l2
 
     def help(self, root: TreeNode, record: List):
-        pass
+        if root.left is not None:
+            self.help(root.left, record)
+
+        if root.left is None and root.right is None:
+            record.append(root.val)
+
+        if root.right is not None:
+            self.help(root.right, record)
