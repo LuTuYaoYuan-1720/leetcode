@@ -2,7 +2,6 @@
 from typing import List
 from collections import Counter
 
-
 class Solution:
     def mostCommonWord(self, paragraph: str, banned: List[str]) -> str:
         words = []
