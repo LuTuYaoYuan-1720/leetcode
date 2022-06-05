@@ -11,26 +11,25 @@ class ListNode:
 
 class Solution:
     def mergeTwoLists(self, list1: Optional[ListNode], list2: Optional[ListNode]) -> Optional[ListNode]:
-        res = ListNode()
-        p = res
-        while list1 is not None and list2 is not None:
-            if list1.val > list2.val:
-                cur = ListNode(list2.val)
-                p.next = cur
-                p = p.next
-                list2 = list2.next
+        dummy = ListNode(-1)
+        p = dummy
+        p1 = list1
+        p2 = list2
+        while p1 is not None and p2 is not None:
+            if p1.val > p2.val:
+                p.next = p2
+                p2 = p2.next
             else:
-                cur = ListNode(list1.val)
-                p.next = cur
-                p = p.next
-                list1 = list1.next
+                p.next = p1
+                p1 = p1.next
+            p = p.next
 
-        if list1 is not None:
-            p.next = list1
-        if list2 is not None:
-            p.next = list2
+        if p1 is not None:
+            p.next = p1
+        if p2 is not None:
+            p.next = p2
 
-        return res.next
+        return dummy.next
 
 
 l1 = ListNode(1)
