@@ -6,6 +6,7 @@ class Solution:
         res = 0
         l = 0
         cnt = {}
+        # 也是滑动窗口那么个意思， 一旦窗口内有一个字符出现两次， 就要缩小窗口至其保持所有都出现一次
         for r in range(0, len(s)):
             if s[r] not in cnt.keys():
                 cnt[s[r]] = 1
